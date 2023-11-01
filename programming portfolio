@@ -57,7 +57,7 @@ import shutil
 
 def findfilepath(name):
     found = False
-    for root, dir, filenames in os.walk(os.path.expanduser("C:\\")):
+    for root, dir, filenames in os.walk(os.path.expanduser("\\")):
         if name in filenames:
             found = True
             return str(root)
