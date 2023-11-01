@@ -35,3 +35,49 @@ except:
 ##############################
 
 #### challenge 5 ####
+import sys
+TemperatureList = []
+TotalTemp = 0
+if len(sys.argv) > 1:
+    for temp in sys.argv[1:]:
+        TemperatureList.append(int(temp[:-1]))
+        TotalTemp += int(temp[:-1])
+else:
+    print("no values entered")
+print("Highest Temp: " + str(max(TemperatureList)))
+print("Lowest Temp: " + str(min(TemperatureList)))
+print("average Temp: " + str(TotalTemp / (len(sys.argv) - 1)))
+######################
+
+#### challenge 6 ####
+import sys
+import os
+import shutil
+
+
+def findfilepath(name):
+    found = False
+    for root, dir, filenames in os.walk(os.path.expanduser("C:\\")):
+        if name in filenames:
+            found = True
+            return str(root)
+    if found == False:
+        print("File not found")
+        quit()
+
+def copyandrename(root, name):
+    SrcDir = root + "\\" + name
+    DstDir = root + "\\" + "Backup-" + name
+    shutil.copyfile(SrcDir, DstDir)
+    print("File has been copied")
+
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        name = sys.argv[1]
+        print(name)
+        copyandrename(findfilepath(name), name)
+    else:
+        print("no file name given")
+
+#########################
