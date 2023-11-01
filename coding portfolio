@@ -1,0 +1,37 @@
+###############################
+#### programming portfolio ####
+###############################
+
+#### challenge 1 ####
+
+print(sys.platform)
+
+#####################
+
+#### challenge 2 ####
+import sys 
+
+print(len(sys.argv) -1)
+#####################
+
+
+#### challenge 3 ####
+import sys
+arglist = sorted(sys.argv, key=len)
+print(arglist[0])
+#####################
+
+#### challenge 4 ####
+
+import sys
+import requests
+url = str(sys.argv[1])
+try:
+    requests.head(url)
+    print("URL is valid")
+except:
+    print("URL is not valid")
+
+##############################
+
+#### challenge 5 ####
